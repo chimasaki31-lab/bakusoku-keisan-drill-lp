@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爆速計算ドリル｜算数暗算のスピード脳トレ</title>
+  <meta name="description" content="ドラゴン桜で話題の計算特訓がスマホでできる。100問の反復で算数の処理速度を鍛える学習ドリルアプリ。足し算・引き算・掛け算・割り算を4択で特訓。">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic UI', sans-serif;
+      background: #fff;
+      color: #222;
+      line-height: 1.7;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(160deg, #b2f0e8 0%, #d4f0c4 50%, #e8f8e0 100%);
+      padding: 56px 24px 48px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #fff;
+      color: #e05a00;
+      font-size: 13px;
+      font-weight: bold;
+      padding: 5px 18px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      letter-spacing: 0.04em;
+    }
+
+    .hero h1 {
+      font-size: 30px;
+      font-weight: 900;
+      line-height: 1.35;
+      color: #1a2e1a;
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero h1 span {
+      color: #1a8a60;
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: #3a5a3a;
+      margin-bottom: 32px;
+      font-weight: 500;
+    }
+
+    .dl-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #111;
+      color: #fff;
+      text-decoration: none;
+      padding: 15px 36px;
+      border-radius: 16px;
+      font-size: 17px;
+      font-weight: bold;
+      margin-bottom: 40px;
+      transition: opacity 0.2s;
+    }
+    .dl-btn:hover { opacity: 0.85; }
+    .dl-btn img { width: 22px; }
+
+    .screenshots {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .screenshots img {
+      width: 150px;
+      border-radius: 20px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+    }
+
+    /* ===== DRAGON SAKURA ===== */
+    .dragon {
+      background: linear-gradient(135deg, #0f1f3d 0%, #1e3a5f 100%);
+      color: #fff;
+      padding: 56px 24px;
+      text-align: center;
+    }
+
+    .dragon-label {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.85);
+      font-size: 12px;
+      padding: 4px 16px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      letter-spacing: 0.08em;
+    }
+
+    .dragon h2 {
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 1.4;
+      margin-bottom: 20px;
+      color: #a8f0e0;
+    }
+
+    .dragon p {
+      font-size: 15px;
+      color: #c8e0d8;
+      max-width: 480px;
+      margin: 0 auto 24px;
+      line-height: 1.85;
+    }
+
+    .dragon-box {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 14px;
+      padding: 20px 24px;
+      max-width: 460px;
+      margin: 0 auto;
+      font-size: 15px;
+      color: #e8f8f0;
+      line-height: 1.85;
+    }
+
+    /* ===== PROBLEM ===== */
+    .problem {
+      padding: 56px 24px;
+      background: #fffbf5;
+    }
+
+    .section-label {
+      font-size: 12px;
+      color: #888;
+      text-align: center;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 900;
+      text-align: center;
+      color: #1a2e1a;
+      margin-bottom: 28px;
+      line-height: 1.4;
+    }
+
+    .problem-list {
+      list-style: none;
+      max-width: 460px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .problem-list li {
+      padding: 14px 18px;
+      background: #fff;
+      border-left: 4px solid #e05a00;
+      border-radius: 10px;
+      font-size: 15px;
+      color: #333;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    /* ===== FEATURES ===== */
+    .features {
+      padding: 56px 24px;
+      background: #f4fcf8;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 24px 22px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+    }
+
+    .feature-icon {
+      font-size: 34px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .feature-card h3 {
+      font-size: 17px;
+      font-weight: bold;
+      color: #1a2e1a;
+      margin-bottom: 6px;
+    }
+
+    .feature-card p {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    /* ===== HOW TO ===== */
+    .howto {
+      padding: 56px 24px;
+      background: #fff;
+    }
+
+    .steps {
+      max-width: 460px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      width: 42px;
+      height: 42px;
+      min-width: 42px;
+      background: linear-gradient(135deg, #3dd0a8, #1a8a60);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .step-content h3 {
+      font-size: 17px;
+      font-weight: bold;
+      color: #1a2e1a;
+      margin-bottom: 4px;
+    }
+
+    .step-content p {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    /* ===== HISTORY HIGHLIGHT ===== */
+    .history {
+      padding: 48px 24px;
+      background: linear-gradient(135deg, #eaf6ff 0%, #f0fff8 100%);
+      text-align: center;
+    }
+
+    .history h2 {
+      font-size: 22px;
+      font-weight: 900;
+      color: #1a2e1a;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .history p {
+      font-size: 15px;
+      color: #444;
+      margin-bottom: 24px;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .history img {
+      width: 160px;
+      border-radius: 20px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.13);
+    }
+
+    /* ===== CTA ===== */
+    .cta {
+      padding: 64px 24px;
+      background: linear-gradient(160deg, #b2f0e8 0%, #d4f0c4 100%);
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 26px;
+      font-weight: 900;
+      color: #1a2e1a;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .cta p {
+      font-size: 15px;
+      color: #3a5a3a;
+      margin-bottom: 32px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #111;
+      color: #888;
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      line-height: 2;
+    }
+
+    footer a {
+      color: #5ecfb0;
+      text-decoration: none;
+      margin: 0 12px;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (min-width: 560px) {
+      .hero h1 { font-size: 38px; }
+      .screenshots img { width: 180px; }
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .dragon h2 { font-size: 30px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ヒーロー -->
+<section class="hero">
+  <div class="hero-badge">📚 ドラゴン桜の特訓プリントをスマホで実践</div>
+  <h1>
+    計算が速くなると、<br>
+    <span>テストが変わる。</span>
+  </h1>
+  <p class="hero-sub">100問の反復で算数の処理速度を鍛える学習ドリル</p>
+  <a href="https://apps.apple.com/jp/app/%E7%88%86%E9%80%9F%E8%A8%88%E7%AE%97%E3%83%89%E3%83%AA%E3%83%AB-%E7%AE%97%E6%95%B0%E6%9A%97%E7%AE%97%E3%81%AE%E3%82%B9%E3%83%94%E3%83%BC%E3%83%89%E8%84%B3%E3%83%88%E3%83%AC/id6761619388" class="dl-btn">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="white"><path d="M11 2C6.03 2 2 6.03 2 11s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm4.5 9.5h-3.75V15h-1.5v-3.5H6.5v-1.5h3.75V6.5h1.5v3.5H15.5v1.5z"/></svg>
+    App Storeで無料ダウンロード
+  </a>
+  <div class="screenshots">
+    <img src="screenshot1.png" alt="ホーム画面 - 種目と問題数を選択">
+    <img src="screenshot2.png" alt="練習画面 - タイマーで計算">
+    <img src="screenshot3.png" alt="履歴画面 - 過去20回の記録">
+  </div>
+</section>
+
+<!-- ドラゴン桜セクション -->
+<section class="dragon">
+  <div class="dragon-label">なぜ計算特訓が必要なのか</div>
+  <h2>受験漫画『ドラゴン桜』が<br>教えてくれた特訓法</h2>
+  <p>
+    『ドラゴン桜』では、100問の算数プリントを毎日繰り返すことで
+    計算の処理速度を上げ、受験で戦える基礎力をつける特訓が紹介されています。
+  </p>
+  <div class="dragon-box">
+    計算が速くなると、頭の中に余裕が生まれる。<br>
+    その余裕が、難しい問題を落ち着いて解く力になる。<br><br>
+    このアプリは、そのプリントをスマホでいつでも<br>
+    実践できるように作りました。
+  </div>
+</section>
+
+<!-- 課題提起 -->
+<section class="problem">
+  <p class="section-label">PROBLEM</p>
+  <h2 class="section-title">こんなこと、ありませんか？</h2>
+  <ul class="problem-list">
+    <li>⏱ テストで時間が足りず、見直しができない</li>
+    <li>🔢 わかっているのに計算ミスで点を落とす</li>
+    <li>📖 文章問題で詰まるのは、計算が遅いから？</li>
+    <li>📚 算数プリントをやらせたいけど、毎回印刷が面倒</li>
+  </ul>
+</section>
+
+<!-- 機能紹介 -->
+<section class="features">
+  <p class="section-label">FEATURES</p>
+  <h2 class="section-title">アプリでできること</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <span class="feature-icon">➕➖✖️➗</span>
+      <h3>4種類の演算を特訓</h3>
+      <p>足し算・引き算・掛け算・割り算をそれぞれ選んで、または全部まとめて練習できます。</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🔢</span>
+      <h3>10問・50問・100問</h3>
+      <p>その日の時間や気分に合わせて問題数を選択。毎日無理なく続けられる設計です。</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">⏱</span>
+      <h3>タイムを自動計測</h3>
+      <p>解答時間をリアルタイムで計測。タイムが縮まると上達がはっきりわかります。</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📊</span>
+      <h3>過去20回分の履歴</h3>
+      <p>タイム・ミスの種類・問題数をすべて記録。昨日の自分を超えることが目標になります。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 使い方 -->
+<section class="howto">
+  <p class="section-label">HOW TO USE</p>
+  <h2 class="section-title">使い方は3ステップ</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h3>種目と問題数を選ぶ</h3>
+        <p>足し算・引き算・掛け算・割り算から1つ選び、10問・50問・100問のどれかを選択します。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h3>どんどん答えていく</h3>
+        <p>画面に表示される問題に次々と答えます。スピードを意識して解くことが上達の近道です。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h3>タイムと結果を確認</h3>
+        <p>終了後にタイムとミスを確認します。毎日続けると、自分の成長がはっきり見えてきます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 履歴機能ハイライト -->
+<section class="history">
+  <h2>タイムを記録。<br>昨日の自分を超えよう！</h2>
+  <p>成長が数字で見えるから、毎日続けられます。過去20回分の結果を自動保存。</p>
+  <img src="screenshot3.png" alt="履歴画面">
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>さあ、計算特訓を<br>始めよう！</h2>
+  <p>無料で今すぐ始められます。まずは10問から試してみてください。</p>
+  <a href="https://apps.apple.com/jp/app/%E7%88%86%E9%80%9F%E8%A8%88%E7%AE%97%E3%83%89%E3%83%AA%E3%83%AB-%E7%AE%97%E6%95%B0%E6%9A%97%E7%AE%97%E3%81%AE%E3%82%B9%E3%83%94%E3%83%BC%E3%83%89%E8%84%B3%E3%83%88%E3%83%AC/id6761619388" class="dl-btn">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="white"><path d="M11 2C6.03 2 2 6.03 2 11s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm4.5 9.5h-3.75V15h-1.5v-3.5H6.5v-1.5h3.75V6.5h1.5v3.5H15.5v1.5z"/></svg>
+    App Storeで無料ダウンロード
+  </a>
+</section>
+
+<!-- フッター -->
+<footer>
+  <p>爆速計算ドリル - 算数暗算のスピード脳トレ</p>
+  <p style="margin-top: 12px;">
+    <a href="https://sites.google.com/view/bakusoku-math-policy/%E3%83%9B%E3%83%BC%E3%83%A0" target="_blank" rel="noopener">プライバシーポリシー</a>
+    <a href="mailto:chimasaki31@gmail.com">お問い合わせ</a>
+  </p>
+  <p style="margin-top: 12px;">© 2026 MC Labs. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
